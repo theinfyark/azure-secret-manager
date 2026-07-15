@@ -1,0 +1,45 @@
+{
+  "name": "azure-secret-manager",
+  "version": "1.0.0",
+  "description": "Tiny Azure Key Vault helper — get secrets with DefaultAzureCredential, caching, and a clean API.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/secrets.test.js",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "azure",
+    "key-vault",
+    "secrets",
+    "keyvault",
+    "credential",
+    "devops",
+    "cloud"
+  ],
+  "author": "anilachary",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theinfyark/azure-secret-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theinfyark/azure-secret-manager/issues"
+  },
+  "homepage": "https://github.com/theinfyark/azure-secret-manager#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.10.1",
+    "@azure/keyvault-secrets": "^4.9.0"
+  }
+}
