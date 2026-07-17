@@ -1,6 +1,6 @@
 {
   "name": "azure-secret-manager",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tiny Azure Key Vault helper — get secrets with DefaultAzureCredential, caching, and a clean API.",
   "type": "module",
   "main": "./src/index.js",
