@@ -10,6 +10,11 @@ function assertSecretName(name) {
   if (typeof name !== "string" || !name.trim()) {
     throw new AzureSecretsError("Secret name must be a non-empty string");
   }
+  if (!/^[A-Za-z0-9-]{1,127}$/.test(name)) {
+    throw new AzureSecretsError(
+      `Invalid secret name "${name}". Azure secret names must match /^[A-Za-z0-9-]{1,127}$/ (alphanumeric and hyphens, 1–127 characters).`,
+    );
+  }
 }
 
 /**

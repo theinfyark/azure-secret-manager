@@ -23,10 +23,10 @@ describe("AzureSecrets", () => {
   it("gets a secret: await secrets.get('DB_PASSWORD')", async () => {
     const secrets = new AzureSecrets({
       vaultUrl: "https://my-vault.vault.azure.net",
-      client: mockClient({ DB_PASSWORD: "s3cret" }),
+      client: mockClient({ "DB-PASSWORD": "s3cret" }),
     });
 
-    assert.equal(await secrets.get("DB_PASSWORD"), "s3cret");
+    assert.equal(await secrets.get("DB-PASSWORD"), "s3cret");
   });
 
   it("caches secret values", async () => {
@@ -91,6 +91,23 @@ describe("AzureSecrets", () => {
     await assert.rejects(
       () => secrets.get("MISSING"),
       (err) => err instanceof AzureSecretsError && /MISSING/.test(err.message),
+    );
+  });
+
+  it("rejects invalid Azure secret names", async () => {
+    const secrets = new AzureSecrets({
+      vaultUrl: "https://my-vault.vault.azure.net",
+      client: mockClient({}),
+    });
+
+    await assert.rejects(
+      () => secrets.get("DB_PASSWORD"),
+      (err) =>
+        err instanceof AzureSecretsError && /Invalid secret name/.test(err.message),
+    );
+    await assert.rejects(
+      () => secrets.get("has/slash"),
+      AzureSecretsError,
     );
   });
 

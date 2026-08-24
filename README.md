@@ -6,6 +6,14 @@ Tiny helper for **Azure Key Vault** secrets — the API companies actually want.
 npm install azure-secret-manager
 ```
 
+## Features
+
+- Fetch Azure Key Vault secrets with DefaultAzureCredential
+- In-memory cache with configurable TTL
+- `get`, `getMany`, and `set` helpers
+- Enforces Azure secret name rules (alphanumeric and hyphens)
+- Dual ESM + CommonJS entry points
+
 ## Quick Start
 
 ## Usage

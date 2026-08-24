@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [1.1.0] - 2026-08-24
+
+### Added
+
+- Dual CommonJS export via tsup (`require()` → `dist/index.cjs`)
+
+### Fixed
+
+- Secret names must match `^[A-Za-z0-9-]{1,127}$` (Azure Key Vault rules)
+
 ## [1.0.2] - 2026-07-18
 
 ### Changed
